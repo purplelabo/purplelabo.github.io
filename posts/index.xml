@@ -1,1 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Purple Labo</title><link>https://purplelabo.github.io/posts/</link><description>Recent content in Posts on Purple Labo</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 04 Feb 2022 13:31:00 +0900</lastBuildDate><atom:link href="https://purplelabo.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>My First Post</title><link>https://purplelabo.github.io/posts/my-first-post/</link><pubDate>Fri, 04 Feb 2022 13:31:00 +0900</pubDate><guid>https://purplelabo.github.io/posts/my-first-post/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Purple Labo</title><link>https://purplelabo.github.io/posts/</link><description>Recent content in Posts on Purple Labo</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 03 Jan 2022 13:31:00 +0900</lastBuildDate><atom:link href="https://purplelabo.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Heroku Connect 입문</title><link>https://purplelabo.github.io/posts/heroku-connect-introduction/</link><pubDate>Mon, 03 Jan 2022 13:31:00 +0900</pubDate><guid>https://purplelabo.github.io/posts/heroku-connect-introduction/</guid><description>&lt;h1 id="heroku-connect-입문">Heroku Connect 입문.&lt;/h1>
+&lt;h2 id="heroku-connect">Heroku Connect?&lt;/h2>
+&lt;ul>
+&lt;li>Salesforce와 Heroku Postgres 간의 데이터 연동을 제공하는 Heroku 공식 애드온입니다.&lt;/li>
+&lt;li>Bulk API, SOAP API, Streaming API 등의 Salesforce API를 이용해서 데이터 연동이 이루어집니다.&lt;/li>
+&lt;/ul>
+&lt;h2 id="제한-알아두기">제한 알아두기.&lt;/h2>
+&lt;ul>
+&lt;li>Heroku Connect에서 Salesforce를 연결하기 위해 사용하는 유저의 경우에는 일정 권한 이상이 필요합니다.&lt;/li>
+&lt;li>Salesforce의 BULK API를 이용하기 위해, 적어도 Salesforce API Version이 v39이상일 필요가 있습니다.&lt;/li>
+&lt;li>Heroku Connect는 Heroku Postgres의 Connection Pooling과 호환되지 않습니다. Connection Pooling를 사용해야할 경우에는 &lt;a href="https://devcenter.heroku.com/articles/postgres-connection-pooling#incompatibility-with-heroku-connect">Incompatibility with Heroku Connect&lt;/a>을 참고하시기를 바랍니다.&lt;/li>
+&lt;li>&lt;a href="https://devcenter.heroku.com/articles/github-integration-review-apps">Review apps&lt;/a>에서는 생성된 각 Review app에서 수동으로 애드온을 추가해야합니다.&lt;/li>
+&lt;li>Heroku Connect는 데이터 동기화에 사용되는 각종 Postgres function들을 &lt;code>public&lt;/code> 스키마에 작성합니다. 그로인해, &lt;code>public&lt;/code> 스키마가 Postgres의 search_path에서 제거되거나, Postgres function들이 삭제될 경우에는 정상적으로 데이터 동기를 진행할 수 없게됩니다. &lt;code>public&lt;/code> 스키마 또는 관련 functions를 찾을 수 없게된 경우 &lt;a href="https://help.heroku.com/OZ4RPNQS/how-do-i-resolve-function-get_xmlbinary-does-not-exist-errors-in-heroku-connect">How do I resolve &amp;ldquo;function get_xmlbinary() does not exist&amp;rdquo; errors in Heroku Connect?&lt;/a>를 참고하시기를 바랍니다.&lt;/li>
+&lt;li>Heroku Postgres에서 Salesforce로의 데이터 연동은 Postgres Triggers를 사용하여 테이블의 변화를 모니터링해 변경된 내용을 확인후, Salesforce의 SOAP 또는 BULK API를 이용해 Salesforce로 데이터를 연동합니다. Heroku Connect에서 사용되는 테이블에 대해 커스텀 트리거를 작성하는 경우에는 Heroku Connect에서 오작동을 발생시킬 가능성이 있습니다.&lt;/li>
+&lt;li>Heroku Connect에서 Salesforce로 데이터를 연동할 때, Salesforce의 assignment rules은 동작하지 않습니다. Leads, Cases에 대해 default assignment rules을 유효화가 필요한 경우에는 Heroku Support에 티켓을 작성해서 요청해야합니다.&lt;/li>
+&lt;/ul></description></item></channel></rss>
